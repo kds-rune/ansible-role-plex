@@ -23,11 +23,10 @@ None
 None
 
 ## Example Playbook
-`
-  - hosts: localhost
-    roles:
-       - { role: noruro.plex }
-`
+
+    - hosts: localhost
+      roles:
+         - { role: noruro.plex }
 
 # License
   MIT
