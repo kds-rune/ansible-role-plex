@@ -1,0 +1,23 @@
+---
+
+###
+##
+#
+
+- name: PLEX | add repository
+  become: True
+  yum_repository:
+    name: plex
+    description: plex media server
+    enabled: yes
+    gpgcheck: yes
+    baseurl: https://downloads.plex.tv/repo/rpm/$basearch/
+    gpgkey: https://downloads.plex.tv/plex-keys/PlexSign.key
+    state: present
+
+- name: PLEX | install plex media server
+  become: True
+  yum:
+    name: plexmediaserver
+    state: present
+  notify: restart-plex-server

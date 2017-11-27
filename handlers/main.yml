@@ -1,0 +1,11 @@
+---
+
+###
+##
+#
+
+- name: restart-plex-server
+  become: True
+  service:
+    name: plexmediaserver
+    state: restarted
