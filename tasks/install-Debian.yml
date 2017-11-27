@@ -4,13 +4,13 @@
 ## File: install-Debian.yml
 ##
 
-- name: PLEX | add repository key
+- name: Ubuntu | add repository key
   become: True
   apt_key:
     url: https://downloads.plex.tv/plex-keys/PlexSign.key
     state: present
 
-- name: PLEX | add repository
+- name: Ubuntu | add repository
   become: True
   apt_repository:
     state: present
@@ -18,7 +18,7 @@
     filename: 'plexmediaserver'
     update_cache: yes
 
-- name: PLEX | install plex media server
+- name: Ubuntu | install plex media server
   become: True
   apt:
     name: plexmediaserver

@@ -4,7 +4,7 @@
 ## File: install-RedHat.yml
 ##
 
-- name: PLEX | add repository
+- name: RedHat | add repository
   become: True
   yum_repository:
     name: plex
@@ -15,7 +15,7 @@
     gpgkey: https://downloads.plex.tv/plex-keys/PlexSign.key
     state: present
 
-- name: PLEX | install plex media server
+- name: RedHat | install plex media server
   become: True
   yum:
     name: plexmediaserver
