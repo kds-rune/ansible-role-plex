@@ -10,7 +10,7 @@
 
 - block:
   - import_tasks: install-RedHat.yml
-  - import_tasks: firewall-RedHat.yml
+  - import_tasks: setup-firewalld.yml
   when: ansible_os_family == 'RedHat'
 
-- import_tasks: services.yml
+- import_tasks: setup-services.yml

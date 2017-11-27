@@ -3,3 +3,6 @@
 ##
 ## File: main.yml
 ##
+
+plex_version: present # use 'latest' to upgrade
+plex_port: 32400

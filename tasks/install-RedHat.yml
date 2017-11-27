@@ -19,5 +19,5 @@
   become: True
   yum:
     name: plexmediaserver
-    state: present
+    state: "{{ plex_version }}"
   notify: restart-plex-server

@@ -1,0 +1,12 @@
+---
+
+##
+## File: services.yml
+##
+
+- name: PLEX | Enable service on boot
+  become: True
+  service:
+    name: plexmediaserver
+    state: started
+    enabled: yes
