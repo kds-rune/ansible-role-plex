@@ -1,8 +1,8 @@
 ---
 
-###
 ##
-#
+## File: main.yml
+##
 
 - import_tasks: install-RedHat.yml
   when: ansible_os_family =='RedHat'
@@ -11,5 +11,3 @@
   when: ansible_os_family =='RedHat'
 
 - import_tasks: services.yml
-
-# - meta: flush_handlers
