@@ -1,0 +1,26 @@
+---
+
+##
+## File: install-Debian.yml
+##
+
+- name: PLEX | add repository
+  become: True
+  apt_repository:
+    state: present
+    repo: deb https://downloads.plex.tv/repo/deb public main
+    filename: 'plexmediaserver'
+    update_cache: yes
+
+- name: PLEX | add repository key
+  become: True
+  apt_key:
+    url: https://downloads.plex.tv/plex-keys/PlexSign.key
+    state: present
+
+- name: PLEX | install plex media server
+  become: True
+  apt:
+    name: plexmediaserver
+    state: presenta
+  notify: restart-plex-server
