@@ -1,47 +1,36 @@
-ruro.plex
-=========
+# Ansible Role: plex
 
-  plex: A simple role to install plex media server from plex repository.
+A simple role to install plex media server from plex repository.
 
-  After installation, you can access the server from the following URL to configure:
+After installation, you can access the server from the following URL to configure:
 
-    `- https://<hostname>:32400/web`
+´https://<hostname>:32400/web´
 
-  Files in use:
+### Files in use
     - tasks/main.yml
     - tasks/all-RedHat.yml
     - tasks/firewall-RedHat.yml
     - tasks/services.yml
     - handlers/main.yml
 
-Requirements
-------------
+## Requirements
+None
 
-  None
+## Role Variables
+None
 
-Role Variables
---------------
+## Dependencies
+None
 
-  None
-
-Dependencies
-------------
-  None
-
-Example Playbook
-----------------
-`
+## Example Playbook
+´
   - hosts: localhost
     roles:
        - { role: noruro.plex }
-`
+´
 
-License
--------
-
+# License
   MIT
 
-Author Information
-------------------
-
+# Author Information
   N/A
