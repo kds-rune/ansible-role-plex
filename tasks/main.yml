@@ -6,11 +6,11 @@
 
 - block:
   - import_tasks: install-Debian.yml
-  when: ansible_os_family =='Debian'
+  when: ansible_os_family == 'Debian'
 
 - block:
   - import_tasks: install-RedHat.yml
   - import_tasks: firewall-RedHat.yml
-  when: ansible_os_family =='RedHat'
+  when: ansible_os_family == 'RedHat'
 
 - import_tasks: services.yml
