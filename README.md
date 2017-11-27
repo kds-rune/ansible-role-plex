@@ -7,6 +7,12 @@ Role Name
 
     - https://<hostname>:32400/web
 
+  Files in use:
+    - tasks/main.yml
+        > imports: install-RedHat.yml
+        > imports: firewall-RedHat.yml
+        > imports: services.yml
+    - handlers/main.yml
 
 Requirements
 ------------
