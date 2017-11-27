@@ -1,7 +1,7 @@
-Role Name
+ruro.plex
 =========
 
-  noruro.plex: A simple role to install plex media server from plex repository.
+  plex: A simple role to install plex media server from plex repository.
 
   After installation, you can access the server from the following URL to configure:
 
@@ -9,17 +9,19 @@ Role Name
 
   Files in use:
     - tasks/main.yml
-        > imports: install-RedHat.yml
-        > imports: firewall-RedHat.yml
-        > imports: services.yml
+      - imports: install-RedHat.yml
+      - imports: firewall-RedHat.yml
+      - imports: services.yml
     - handlers/main.yml
 
 Requirements
 ------------
+
   None
 
 Role Variables
 --------------
+
   None
 
 Dependencies
@@ -35,8 +37,10 @@ Example Playbook
 
 License
 -------
+
   MIT
 
 Author Information
 ------------------
+
   N/A
