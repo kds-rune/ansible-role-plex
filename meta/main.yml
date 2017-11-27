@@ -1,18 +1,19 @@
+---
+dependencies: []
+
 galaxy_info:
   author: Rune Rønneseth
   company: AIQU
-
+  description: Plex Mediaserver role for Ansible
   license: MIT
 
   min_ansible_version: 2.4
 
   platforms:
-  - name: CentOS
+  - name: EL
     versions:
     - 7
 
   galaxy_tags:
     - plex
     - centos 
-
-dependencies: []
