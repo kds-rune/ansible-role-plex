@@ -28,8 +28,8 @@ None
       roles:
          - { role: noruro.plex }
 
-# License
+## License
   MIT
 
-# Author Information
+## Author Information
   N/A
