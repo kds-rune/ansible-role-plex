@@ -10,7 +10,15 @@
 
 - block:
   - import_tasks: install-RedHat.yml
-  - import_tasks: setup-firewalld.yml
   when: ansible_os_family == 'RedHat'
+
+- name: TEST | firewalld existence
+  stat:
+    path: /usr/lib/firewalld
+  register: status_firewalld
+
+- block:
+  - import_tasks: setup-firewalld.yml
+  when: status_firewalld.stat.exists
 
 - import_tasks: setup-services.yml
