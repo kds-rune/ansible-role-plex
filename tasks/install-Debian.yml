@@ -4,6 +4,14 @@
 ## File: install-Debian.yml
 ##
 
+- name: Ubuntu | install required packages
+  become: True
+  apt:
+    name: apt-transport-https
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
 - name: Ubuntu | add repository key
   become: True
   apt_key:
