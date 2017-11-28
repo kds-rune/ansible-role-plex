@@ -42,3 +42,5 @@ script:
     docker exec --tty "$(cat ${container_id})" env TERM=xterm
     curl http://localhost:32400/web
 
+notifications:
+  - webhooks: https://galaxy.ansible.com/api/v1/notifications/
