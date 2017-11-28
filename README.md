@@ -4,7 +4,7 @@ A simple role to install plex media server from plex repository.
 
 After installation, you can access the server from the following URL to configure:
 
-`https://<hostname>:32400/web`
+`http://<hostname>:32400/web`
 
 ## Requirements
 None
