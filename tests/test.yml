@@ -4,7 +4,6 @@
 ## File: test.yml
 ##
 
-- hosts: localhost
-  remote_user: root
+- hosts: all
   roles:
-    - { role: roles/noruro.plex }
+    - role_under_test
