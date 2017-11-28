@@ -9,11 +9,11 @@
     - role_under_test
 
   pre_tasks:
-    - name: Debian dependencies
+    - name: Update cache for Debian
       apt:
-        name: "{{ item }}"
         update_cache: yes
         cache_valid_time: 600
+      
       when: ansible_os_family == 'Debian'
 
     - name: install test dependencies
