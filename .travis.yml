@@ -1,26 +1,42 @@
 ---
 
-###
-###
-###
+#language: python
+#python: "2.7"
+sudo: required
 
-language: python
-python: "2.7"
+env:
+  - distro: centos7
+    init: /usr/lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+  - distro: ubuntu1604
+    init: /lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
+services:
+  - docker
 
 before_install:
-  - sudo apt-get update -qq
-
-install:
-  - pip install ansible
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - 'docker pull geerlingguy/docker-${distro}-ansible:latest'
 
 script:
-  - "ansible-playbook -i tests/inventory tests/test.yml --syntax-check"
-  - "ansible-playbook -i tests/inventory tests/test.yml --connection=local --become"
+  - container_id=$(mktemp)
+  - 'docker run --detech --volume="${PWD}":/etc/ansible/roles/plex:ro ${run_opts} geerlingguy/docker-${distro}-ansible:latest "${init}" > "${container_id}"'
+  - 'docker exec "$(cat ${container_id})" df -h'
   - >
-    "ansible-playbook -i tests/inventory tests/test.yml --connection=local --become"
+    docker exec --tty "$(cat ${container_id})" env TERM=xterm
+    ansible-playbook /etc/ansible/roles/plex/tests/test.yml --syntax-check
+  - >
+    docker exec --tty "$(cat ${container_id})" env TERM=xterm
+    ansible-playbook /etc/ansible/roles/plex/tests/test.yml
+  - idempotence=$(mktemp)
+  - >
+    docker exec --tty "$(cat ${container_id})"
+    ansible-playbook /etc/ansible/roles/plex/tests/test.yml
+    | tee -a ${idempotence}
+  - >
+    tail ${idempotence}
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
-  - "curl https://localhost:32400/web"
+#  - curl https://localhost:32400/web
 
