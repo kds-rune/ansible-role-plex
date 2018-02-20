@@ -7,12 +7,15 @@ After installation, you can access the server from the following URL to configur
 `http://<hostname>:32400/web`
 
 ## Requirements
+
 None
 
 ## Role Variables
+
 None
 
 ## Dependencies
+
 None
 
 ## Example Playbook
@@ -28,7 +31,9 @@ None
       plex_version: latest
 ```
 ## License
+
   MIT
 
 ## Author Information
+
   N/A
